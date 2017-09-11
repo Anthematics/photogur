@@ -1,4 +1,6 @@
 class PicturesController < ApplicationController
+	before_action :ensure_logged_in, except:[:show, :index]
+	before_action :load_picture, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@pictures = Picture.all
@@ -20,6 +22,7 @@ class PicturesController < ApplicationController
 		@picture.artist = params[:picture][:artist]
 		@picture.url = params[:picture][:url]
 		@picture.created_at = params[:picture][:date]
+		@picture.user_id = current_user.id
 
 		if @picture.save
 			#ifthe pic gets saves generate a getrequest to /pictures (the index)
