@@ -1,0 +1,59 @@
+	<h1>Pictures (<%= @pictures.length %>)</h1>
+
+		<%= link_to("New Picture", "/pictures/new")%>
+
+		<% @pictures.each do|picture| %>
+				<p> <%= picture.title %>, <%= picture.artist%> </p>
+				<%=link_to(image_tag(picture.url), "/pictures/#{picture.id}")%>
+		<% end %>
+
+	<h1> Most recent pictures </h1>
+
+		<% @most_recent_pictures.each do|picture| %>
+			<p><%= picture.title %>,<%=	picture.artist %> </p>
+			<%=link_to(image_tag(picture.url), "/pictures/#{picture.id}")%>
+		<% end %>
+
+
+	<h1> Older pictures </h1>
+
+		<% @olderpictures.each do|picture|  %>
+			<p> <%= picture.title %> </p>
+			<%=link_to(image_tag(picture.url), "/pictures/#{picture.id}")%>
+		<% end %>
+
+	<h1> Pictures By Year (2017)</h1>
+	<% Picture.pictures_created_in_year(2017).each do|picture|  %>
+		<p> <%= picture.title %> </p>
+		<%=link_to(image_tag(picture.url), "/pictures/#{picture.id}")%>
+	<% end %>
+
+	<h1> Pictures By Year (2016)</h1>
+	<% Picture.pictures_created_in_year(2016).each do|picture|  %>
+		<p> <%= picture.title %> </p>
+		<%=link_to(image_tag(picture.url), "/pictures/#{picture.id}")%>
+	<% end %>
+
+	<h1> Pictures By Year (2015)</h1>
+	<% Picture.pictures_created_in_year(2015).each do|picture|  %>
+		<p> <%= picture.title %> </p>
+		<%=link_to(image_tag(picture.url), "/pictures/#{picture.id}")%>
+	<% end %>
+
+	<h1> Pictures By Year (2014)</h1>
+	<% Picture.pictures_created_in_year(2014).each do|picture|  %>
+		<p> <%= picture.title %> </p>
+		<%=link_to(image_tag(picture.url), "/pictures/#{picture.id}")%>
+	<% end %>
+
+	<h1> Pictures By Year (2013)</h1>
+	<% Picture.pictures_created_in_year(2013).each do|picture|  %>
+		<p> <%= picture.title %> </p>
+		<%=link_to(image_tag(picture.url), "/pictures/#{picture.id}")%>
+	<% end %>
+
+	<h1> Pictures By Year (2012)</h1>
+	<% Picture.pictures_created_in_year(2012).each do|picture|  %>
+		<p> <%= picture.title %> </p>
+		<%=link_to(image_tag(picture.url), "/pictures/#{picture.id}")%>
+	<% end %>
